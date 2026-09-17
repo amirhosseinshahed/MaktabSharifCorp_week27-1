@@ -1,0 +1,15 @@
+Phase 3 — Authentication and Session Creation
+Requirement 3 — Authentication Filter (AuthFilter)
+Create a filter that applies only to the /login path.
+The filter must:
+1. Be applied with @WebFilter("/login").
+2. Read the username and password values from the Query Parameter:
+String username = request.getParameter("username");
+String password = request.getParameter("password");
+3. Compare with hard-coded values:
+o username = "admin" and password = "1234" → role admin
+o username = "user" and password = "1111" → role user
+4. If correct → continue the chain (so LoginServlet runs).
+5. If incorrect → set the response to SC_FORBIDDEN and write the following message:
+Invalid credentials
+
